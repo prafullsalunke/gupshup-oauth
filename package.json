@@ -1,0 +1,27 @@
+{
+  "name": "gupshup-oauth",
+  "version": "1.0.0",
+  "description": "This is a sample oauth implementation for the bots platform on gupshup.io devtools",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prafullsalunke/gupshup-oauth.git"
+  },
+  "keywords": [
+    "gupshup",
+    "oauth"
+  ],
+  "author": "Prafull Salunke",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prafullsalunke/gupshup-oauth/issues"
+  },
+  "homepage": "https://github.com/prafullsalunke/gupshup-oauth#readme",
+  "dependencies": {
+    "passport": "^0.3.2",
+    "passport-github2": "^0.1.10"
+  }
+}
