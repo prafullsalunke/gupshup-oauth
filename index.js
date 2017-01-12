@@ -1,7 +1,7 @@
 var OAuth = require('./lib/oauth2'),
     OAuth2 = OAuth.OAuth2,
-    routes = require('gupshup-utils').BotRoutes;
-
+    routes = require('gupshup-utils');
+    routes = routes.BotRoutes;
 //Making a new instance of gupshup bot routes.
 //Standard url will be https://www.gupshup.io/developer/bot/<botname>/auth/<channel_name>/oauth
 //Please make sure you have added this url to your auth callback url of your respective app
@@ -13,6 +13,7 @@ var route = new routes();
     var _oauth = oauth.prototype;
     _oauth.execute = route.execute;
     _oauth.creds = creds;
+    _oauth.route = creds.route||route;
     (function(creds) {
         _oauth.postCustomMsg = function(context, contextObj, msg, callback) {
             try {
@@ -51,22 +52,31 @@ var route = new routes();
                 }
             });
         }
-        _oauth.creds.map(function(channel, key) {
-            _oauth[channel] = new OAuth2(_oauth.creds[channel].clientID,
-                _oauth.creds[channel].clientSecret,
-                _oauth.creds[channel].baseUrl,
-                _oauth.creds[channel].authUrl,
-                _oauth.creds[channel].accessTokenUrl,
+        Object.keys(_oauth.creds.channels).map(function(channel, key) {
+            _oauth[channel] = new OAuth2(_oauth.creds.channels[channel].clientID,
+                _oauth.creds.channels[channel].clientSecret,
+                _oauth.creds.channels[channel].baseUrl,
+                _oauth.creds.channels[channel].authUrl,
+                _oauth.creds.channels[channel].accessTokenUrl,
                 null
             );
-            route.on('GET', '/gupshup-oauth/'+channel+'/callback', function(context, event) {
+            console.log("Auth registered for "+channel)
+            _oauth.route.on('GET', '/gupshup-oauth/'+channel+'/callback', function(context, event) {
                 if (_oauth.creds.preCallback)
                     _oauth.creds.preCallback(context, event,channel, _oauth.getAccessToken)
                 else {
                     _oauth.getAccessToken(context, event,channel)
                 }
             });
+            console.log("Route registered for "+channel)
         });
+        _oauth.getSignedURL = function(channel,contextId){
+            return _oauth[channel].getAuthorizeUrl({
+                redirect_uri: _oauth.creds.channels[channel].callbackURL,
+                scope: _oauth.creds.channels[channel].scope,
+                state: contextId
+            })
+        }
     })(creds);
     return _oauth;
 })
