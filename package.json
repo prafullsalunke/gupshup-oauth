@@ -21,7 +21,11 @@
   },
   "homepage": "https://github.com/prafullsalunke/gupshup-oauth#readme",
   "dependencies": {
-    "passport": "^0.3.2",
-    "passport-github2": "^0.1.10"
+    "crypto": "0.0.3",
+    "gupshup-utils": "^1.0.0",
+    "http": "0.0.0",
+    "https": "^1.0.0",
+    "querystring": "^0.2.0",
+    "url": "^0.11.0"
   }
 }

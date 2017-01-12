@@ -1,4 +1,4 @@
-var OAuth = require('./lib/oauth2'),
+var OAuth = require('gupshup-oauth'),
     OAuth2 = OAuth.OAuth2,
     routes = require('gupshup-utils').BotRoutes;
 
