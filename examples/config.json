@@ -1,24 +1,26 @@
 {
     "oauth_creds": {
-        "botname":"your bot name here",
-        "apikey":"your api key here",
-        "github" : {
-          "callbackURL" : "https://www.gupshup.io/developer/bot/<your bot name here>/gupshup-oauth/github/callback",
-          "baseUrl":"https://github.com/",
-          "authUrl":"login/oauth/authorize",
-          "accessTokenUrl":"login/oauth/access_token",
-          "clientSecret" : "some client secret key",
-          "clientID" : "some client id",
-          "scope" : "first_name,last_name,email"
-        },
-        "facebook" : {
-          "callbackURL" : "https://dev-smapi.gupshup.io/developer/bot/<your bot name here>/gupshup-oauth/facebook/callback",
-          "baseUrl":"",
-          "authUrl":"https://www.facebook.com/v2.8/dialog/oauth",
-          "accessTokenUrl":"https://graph.facebook.com/oauth/access_token",
-          "clientSecret" : "some client secret key",
-          "clientID" : "some client id",
-          "scope" : "public_profile email"
+        "botname": "<yourbotname>",
+        "apikey": "<gupshup apikey>",
+        "channels": {
+            "github": {
+                "callbackURL": "https://dev-smapi.gupshup.io/developer/bot/mynebotfordevbox/gupshup-oauth/github/callback",
+                "baseUrl": "https://github.com/",
+                "authUrl": "login/oauth/authorize",
+                "accessTokenUrl": "login/oauth/access_token",
+                "clientSecret": "<client secret key>",
+                "clientID": "<client id>",
+                "scope": "first_name,last_name,email"
+            },
+            "facebook": {
+                "callbackURL": "https://dev-smapi.gupshup.io/developer/bot/mynebotfordevbox/gupshup-oauth/facebook/callback",
+                "baseUrl": "",
+                "authUrl": "https://www.facebook.com/v2.8/dialog/oauth",
+                "accessTokenUrl": "https://graph.facebook.com/oauth/access_token",
+                "clientSecret": "<client secret key>",
+                "clientID": "<client id>",
+                "scope": "public_profile email"
+            }
         }
     }
 }
