@@ -1,6 +1,6 @@
 {
   "name": "gupshup-oauth",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "This is a sample oauth implementation for the bots platform on gupshup.io devtools",
   "main": "index.js",
   "scripts": {
