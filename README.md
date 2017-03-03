@@ -80,7 +80,7 @@ The structure is.
 ```
 gupshupAuth.getSignedURL(<channel_name>, <state>);
 ```
-###Kindly note that state is required here and channel_name could be only from the auth creds defined in the config.json
+> **Kindly note that state is required here and channel_name could be only from the auth creds defined in the config.json**
 
 **5. The last and the most important step where you have to filter all gupshup-oauth http responses in the HttpEndpointHandler section**
 ```
