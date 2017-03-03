@@ -96,5 +96,5 @@ if (path.match(/gupshup-oauth/g)) {
 
 You can refer to [botIndex.js](https://github.com/prafullsalunke/gupshup-oauth/blob/master/examples/botIndex.js) for a better understanding of the above mentioned steps.
 
-## Kindly share your feedback, we will be very pleased to help you. 
+### Kindly share your feedback, we will be very pleased to help you. 
 Visit [gupshup.io](http://www.gupshup.io/developer/) to create your bots and use them in your code.
