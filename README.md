@@ -5,7 +5,7 @@ This is a sample oauth implementation for the bots platform on gupshup.io dev-bo
 npm install gupshup-oauth
 
 ## Usage
-1. Create a config.json with following credentials
+**1. Create a config.json with following credentials**
 ```
 var config = {
     "oauth_creds": {
@@ -48,14 +48,14 @@ https://www.gupshup.io/developer/bot/<gupshup_botname>/gupshup-oauth/<channel_na
 where channel_name is the key for the channels Object, eg.facebook,github,twitter or your own oauth.
 ```
 
-2. Use these creds inside your index.js file (You can refer to the botIndex.js in examples for better understanding.)
+**2. Use these creds inside your index.js file (You can refer to the botIndex.js in examples for better understanding.)**
 ```
 //Fetch config
 var authCreds = require('./config.json').oauth_creds;
 //Register new oauth instance with your auth config
 var gupshupAuth = require('gupshup-oauth')(authCreds);
 ```
-3. You need to specify any handling that you wish to do before and after the auth is finished.
+**3. You need to specify any handling that you wish to do before and after the auth is finished.**
 ```
 //This will be called on auth request completion,
 // the oauth channel will share code to fetch auth token
@@ -71,7 +71,7 @@ authCreds.postCallback = function(context, event, channel, done) {
     done(context, event, channel);
 }
 ```
-4. Fetch the signend_link to share it with your users. This needs to be done in the MessageHandler section
+**4. Fetch the signend_link to share it with your users. This needs to be done in the MessageHandler section**
 ```
 var facebook_signed_url = gupshupAuth.getSignedURL('facebook', event.contextobj.contextid);
 var facebook_signed_url = gupshupAuth.getSignedURL('github', event.contextobj.contextid);
@@ -82,7 +82,7 @@ gupshupAuth.getSignedURL(<channel_name>, <state>);
 ```
 ###Kindly note that state is required here and channel_name could be only from the auth creds defined in the config.json
 
-5. The last and the most important step where you have to filter all gupshup-oauth http responses in the HttpEndpointHandler section
+**5. The last and the most important step where you have to filter all gupshup-oauth http responses in the HttpEndpointHandler section**
 ```
 if (path.match(/gupshup-oauth/g)) {
     //Handling oauth specific urls
