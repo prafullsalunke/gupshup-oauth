@@ -26,7 +26,7 @@ var route = new routes();
             } catch (err) {}
         };
         _oauth.getAccessToken = function(context, event, channel) {
-            _oauth[channel].getOAuthAccessToken(event.params.code, { 'redirect_uri': _oauth.creds[channel].callbackURL }, function(e, access_token, refresh_token, results) {
+            _oauth[channel].getOAuthAccessToken(event.params.code, { 'redirect_uri': _oauth.creds.channels[channel].callbackURL }, function(e, access_token, refresh_token, results) {
                 if (e) {
                     context.console.log(e);
                     context.sendResponse("Error : " + e);
