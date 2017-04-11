@@ -14,7 +14,7 @@
     "gupshup",
     "oauth"
   ],
-  "author": "Prafull Salunke",
+  "author": "Prafull Salunke <prafullsalunke@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/prafullsalunke/gupshup-oauth/issues"
